@@ -5,17 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Outside the Lab — Md Mohsin Ali</title>
 <link rel="stylesheet" href="style.css" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230969da'/%3E%3Ctext x='50%25' y='54%25' font-family='system-ui,sans-serif' font-size='34' font-weight='700' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3EMA%3C/text%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c8cf0'/%3E%3Ctext x='50%25' y='54%25' font-family='system-ui,sans-serif' font-size='32' font-weight='700' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3EMA%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
+<header class="site-header">
+  <div class="site-title">
+    <h1>Md Mohsin Ali</h1>
+    <p class="subtitle">Cancer Biology &middot; Tumor Metabolism</p>
+  </div>
+  <div class="header-contact">
+    <span class="icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+    </span>
+    <span>
+      <div class="label">Email</div>
+      <div class="value"><a href="mailto:MdMohsin.Ali@RoswellPark.org">MdMohsin.Ali@RoswellPark.org</a></div>
+    </span>
+  </div>
+</header>
 
-<nav class="topnav">
-  <div class="topnav-inner">
-    <a class="brand" href="index.html">Md Mohsin Ali</a>
-    <button class="burger" aria-label="Menu" onclick="document.querySelector('.topnav-links').classList.toggle('open')">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
-    </button>
-    <div class="topnav-links">
+<nav class="navbar">
+  <div class="navbar-inner">
+    <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="About.html">About</a>
       <a href="research.html">Research</a>
@@ -24,66 +35,22 @@
       <a href="Blog.html">Blog</a>
       <a href="Outside the lab.html" class="active">Outside the Lab</a>
     </div>
+    <button class="burger" aria-label="Menu" onclick="this.parentElement.querySelector('.nav-links').classList.toggle('open')">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+    </button>
   </div>
 </nav>
+<div class="container">
+  <h1 style="color:#1c8cf0">Outside the Lab</h1>
+  <p>Science is a big part of my life, but not all of it. Here are some things I enjoy when I'm not in the lab.</p>
 
-<div class="page-wrap">
-  <aside class="sidebar">
-    <img class="photo" src="photo.jpg" alt="Md Mohsin Ali" />
-    <h3>Md Mohsin Ali</h3>
-    <p class="role">Postdoctoral Fellow<br>Roswell Park Comprehensive Cancer Center</p>
-    <ul class="meta">
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0Z"/><circle cx="12" cy="10" r="3"/></svg> Buffalo, NY</li>
-      <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg> <a href="mailto:MdMohsin.Ali@RoswellPark.org">Email</a></li>
-    </ul>
-    <div class="social">
-      <a href="https://scholar.google.com/citations?user=0NQRb50AAAAJ&hl=en" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 3 2 8l10 5 7-3.5V15"/><path d="M6 11v4c0 1.5 2.7 3 6 3s6-1.5 6-3v-4"/></svg> Scholar</a>
-      <a href="https://github.com/MD-MOHSIN-ALI" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg> GitHub</a>
-      <a href="https://www.linkedin.com/in/mohsin12027/" target="_blank"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5a1.94 1.94 0 1 1-3.88 0 1.94 1.94 0 0 1 3.88 0ZM3.4 8.5h3.1V21H3.4V8.5Zm5.5 0h2.97v1.7h.04c.41-.78 1.42-1.6 2.93-1.6 3.13 0 3.71 2.06 3.71 4.74V21h-3.1v-5.6c0-1.33-.02-3.05-1.86-3.05-1.86 0-2.14 1.45-2.14 2.95V21h-3.1V8.5Z"/></svg> LinkedIn</a>
-    </div>
-  </aside>
-
-  <main class="content">
-    <h1>Outside the Lab</h1>
-
-    <p>Science is a big part of my life, but not all of it. Here are some things I enjoy when I'm not in the lab.</p>
-
-    <!-- EDIT: customize these cards with your actual hobbies and interests -->
-    <div class="hobby-grid">
-
-      <div class="hobby-card">
-        <h3>🌍 Travel &amp; Exploration</h3>
-        <p>I enjoy exploring new places, learning about different cultures, and experiencing nature. Moving from my home country to the U.S. has been an adventure in itself.</p>
-      </div>
-
-      <div class="hobby-card">
-        <h3>📚 Reading</h3>
-        <p>I like reading about science, history, and personal development. Always open to book recommendations!</p>
-      </div>
-
-      <div class="hobby-card">
-        <h3>🍳 Cooking</h3>
-        <p>Trying out new recipes — especially dishes from home — is one of my favorite ways to unwind after a long day in the lab.</p>
-      </div>
-
-      <div class="hobby-card">
-        <h3>🏃 Fitness</h3>
-        <p>Staying active helps me stay sharp. I try to balance the sedentary lab life with regular exercise.</p>
-      </div>
-
-      <!-- EDIT: add or remove cards to match your interests -->
-    </div>
-
-    <!-- EDIT: you can add photos here too -->
-    <!--
-    <h2>Photo Gallery</h2>
-    <p>Some moments outside the lab...</p>
-    <img src="travel1.jpg" alt="Description" style="border-radius:10px;margin:10px 0" />
-    -->
-
-  </main>
+  <div class="hobby-grid">
+    <div class="hobby-card"><h3>🌍 Travel &amp; Exploration</h3><p>I enjoy exploring new places, learning about different cultures, and experiencing nature. Moving from my home country to the U.S. has been an adventure in itself.</p></div>
+    <div class="hobby-card"><h3>📚 Reading</h3><p>I like reading about science, history, and personal development. Always open to book recommendations!</p></div>
+    <div class="hobby-card"><h3>🍳 Cooking</h3><p>Trying out new recipes — especially dishes from home — is one of my favorite ways to unwind after a long day in the lab.</p></div>
+    <div class="hobby-card"><h3>🏃 Fitness</h3><p>Staying active helps me stay sharp. I try to balance the sedentary lab life with regular exercise.</p></div>
+  </div>
+  <!-- EDIT: customize cards to match your real interests -->
 </div>
-
-<footer class="site-footer">© <script>document.write(new Date().getFullYear())</script> Md Mohsin Ali · <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></footer>
-</body>
-</html>
+<footer class="site-footer">&copy; <script>document.write(new Date().getFullYear())</script> Md Mohsin Ali &middot; Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></footer>
+</body></html>
