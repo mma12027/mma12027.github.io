@@ -2,23 +2,24 @@
 
 Academic portfolio of **Md Mohsin Ali** — Postdoctoral Fellow at Roswell Park Comprehensive Cancer Center, Buffalo, NY.
 
-Header style: large blue title + subtitle, email block on the right, and a solid blue horizontal navigation bar (lab-website style).
+Lab-website header: large blue title + subtitle, email block on the right, solid blue horizontal nav bar.
 
-## Pages
-| File | Section |
-|------|---------|
-| `index.html` | Home — welcome + photo + overview |
-| `About.html` | Education, experience, skills |
-| `research.html` | Research themes |
-| `Publications.html` | Publication list |
-| `Events.html` | Talks, awards, service |
-| `Blog.html` | Blog posts |
-| `Outside the lab.html` | Personal interests |
-| `style.css` | Shared stylesheet (all colors under `:root`) |
+## Pages (nav order)
+| File | Nav label |
+|------|-----------|
+| `index.html` | **About** (landing page) |
+| `research.html` | Research |
+| `Publications.html` | Publications |
+| `Events.html` | Events |
+| `Blog.html` | Blogs |
+| `News & Fun.html` | News & Fun |
+| `Resources.html` | Resources |
+| `Collaborations.html` | Collaborations |
+| `style.css` | shared stylesheet |
 
 ## Editing
-- Search for `EDIT` comments in the HTML to find placeholders.
-- Change the blue color: edit `--blue` (and `--nav-bg`) in `style.css`.
-- Add publications: copy a `pub-entry` block in `Publications.html`.
-- Add events: copy an `event-row` block in `Events.html`.
-- Your profile photo on the home page is `639079589_122241835904248950_2550784112410122958_n.jpg`.
+- Search `EDIT` in the HTML for placeholders (social URLs on About page, fields on Collaborations page, etc.).
+- Change the blue: edit `--blue` and `--nav-bg` in `style.css`.
+- Profile photo: `639079589_122241835904248950_2550784112410122958_n.jpg`.
+- Add news items: copy an `event-row` block in `News.html`.
+- Add collaborators: copy an `event-row` block in `Collaborations.html`.

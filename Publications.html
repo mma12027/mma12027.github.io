@@ -6,8 +6,117 @@
 <title>Publications — Md Mohsin Ali</title>
 <link rel="stylesheet" href="style.css" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c8cf0'/%3E%3Ctext x='50%25' y='54%25' font-family='system-ui,sans-serif' font-size='32' font-weight='700' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3EMA%3C/text%3E%3C/svg%3E" />
+<style>
+.pub-container {
+  margin-bottom: 48px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--border-2);
+}
+.pub-container:last-of-type {
+  border-bottom: none;
+}
+.pub-wrapper {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+.pub-thumbnail {
+  width: 140px;
+  height: auto;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-alt);
+  border: 1px solid var(--border-2);
+  flex-shrink: 0;
+}
+.pub-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.pub-content h3 {
+  margin: 0 0 8px;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+.pub-content h3 a {
+  color: var(--blue-deep);
+  font-weight: 700;
+}
+.pub-content h3 a:hover {
+  color: var(--blue);
+  text-decoration: none;
+}
+.pub-meta {
+  font-size: .9rem;
+  color: var(--text-2);
+  margin-bottom: 12px;
+  line-height: 1.5;
+}
+.pub-venue {
+  font-style: italic;
+  color: var(--text-3);
+  margin-top: 2px;
+}
+.pub-year {
+  display: inline-block;
+  background: var(--blue);
+  color: white;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-left: 8px;
+}
+.pub-section-title {
+  font-weight: 700;
+  color: var(--blue);
+  margin-top: 16px;
+  margin-bottom: 6px;
+  font-size: .85rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+}
+.pub-section-title.summary {
+  margin-top: 12px;
+}
+.pub-summary, .pub-highlight {
+  font-size: .95rem;
+  color: var(--text-2);
+  line-height: 1.6;
+  margin: 8px 0;
+}
+.pub-summary strong, .pub-highlight strong {
+  color: var(--text);
+  font-weight: 600;
+}
+.year-section {
+  margin-bottom: 40px;
+}
+.year-heading {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--blue);
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--border);
+}
+@media (max-width: 760px) {
+  .pub-wrapper {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .pub-thumbnail {
+    width: 100%;
+    max-width: 160px;
+  }
+}
+</style>
 </head>
 <body>
+
 <header class="site-header">
   <div class="site-title">
     <h1>Md Mohsin Ali</h1>
@@ -27,56 +136,98 @@
 <nav class="navbar">
   <div class="navbar-inner">
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="About.html">About</a>
+      <a href="index.html">About</a>
       <a href="research.html">Research</a>
       <a href="Publications.html" class="active">Publications</a>
       <a href="Events.html">Events</a>
-      <a href="Blog.html">Blog</a>
-      <a href="Outside the lab.html">Outside the Lab</a>
+      <a href="Blog.html">Blogs</a>
+      <a href="News & Fun.html">News & Fun</a>
+      <a href="Resources.html">Resources</a>
+      <a href="Collaborations.html">Collaborations</a>
     </div>
     <button class="burger" aria-label="Menu" onclick="this.parentElement.querySelector('.nav-links').classList.toggle('open')">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
     </button>
   </div>
 </nav>
+
 <div class="container">
-  <h1 style="color:#1c8cf0">Publications</h1>
-  <p>Full list on my <a href="https://scholar.google.com/citations?user=0NQRb50AAAAJ&hl=en" target="_blank">Google Scholar profile</a>. &nbsp;<strong>Bold</strong> = my name.</p>
+  <h1 style="color:#1c8cf0; margin-bottom: 8px;">Publications</h1>
+  <p>Selected publications from my research. See my <a href="https://scholar.google.com/citations?user=0NQRb50AAAAJ&hl=en" target="_blank" style="font-weight: 600;">Google Scholar</a> for complete list.</p>
 
-  <div class="pub-year">2025</div>
+  <!-- 2025 Publications -->
+  <div class="year-section">
+    <div class="year-heading">2025</div>
 
-  <div class="pub-entry">
-    <h3>Mechanisms of mitochondrial reactive oxygen species action in bone mesenchymal cells</h3>
-    <p class="authors"><strong>Md Mohsin Ali</strong>, Intawat Nookaew, Ana Resende-Coelho, Adriana Marques-Carvalho, Aaron Warren, Qiang Fu, Ha-Neui Kim, Charles A. O'Brien, Maria Almeida</p>
-    <p class="venue">bioRxiv (preprint), 2025</p>
-    <div class="pub-links"><a href="https://www.biorxiv.org/content/10.1101/2025.03.24.643319v1" target="_blank">Preprint</a></div>
-  </div>
-
-  <div class="pub-entry">
-    <h3>The adverse effects of chemotherapy on bone mass are not prevented by senolytics</h3>
-    <p class="authors"><strong>Md Mohsin Ali</strong>, Pilar Simmons, Aaron Warren, Landon B. Gatrell, Ana Resende-Coelho, Taylor McElroy, Antiño R. Allen, Maria Almeida</p>
-    <p class="venue">Scientific Reports, 2025</p>
-    <div class="pub-links">
-      <a href="https://www.nature.com/articles/s41598-025-01717-5" target="_blank">Paper</a>
-      <a href="https://doi.org/10.1038/s41598-025-01717-5" target="_blank">DOI</a>
+    <!-- Publication 1 -->
+    <div class="pub-container">
+      <div class="pub-wrapper">
+        <div class="pub-thumbnail">
+          <!-- EDIT: replace with actual paper thumbnail image -->
+          <div style="width: 100%; height: 120px; background: var(--bg-alt); display: grid; place-items: center; color: var(--text-3); font-size: .85rem; text-align: center; padding: 8px;">Paper thumbnail</div>
+        </div>
+        <div class="pub-content">
+          <h3><a href="https://www.nature.com/articles/s41598-025-01717-5" target="_blank">The adverse effects of chemotherapy on bone mass are not prevented by senolytics</a></h3>
+          <div class="pub-meta">
+            <strong>Md Mohsin Ali</strong>, Pilar Simmons, Aaron Warren, Landon B. Gatrell, Ana Resende-Coelho, Taylor McElroy, Antiño R. Allen, Maria Almeida
+            <div class="pub-venue">Scientific Reports 15 (1), 17279</div>
+          </div>
+          <div class="pub-section-title summary">Summary:</div>
+          <p class="pub-summary">Chemotherapy causes persistent bone loss, but senolytic drugs—which target senescent cells—do not prevent this damage. This work challenges the assumption that therapy-induced senescent cells are the primary driver of bone loss and suggests multi-target approaches are needed.</p>
+        </div>
+      </div>
     </div>
-  </div>
 
-  <div class="pub-entry">
-    <h3>Mitochondrial oxidative stress or decreased autophagy in osteoblast lineage cells is not sufficient to mimic the deleterious effects of aging on bone mechanoresponsiveness</h3>
-    <p class="authors">Ana Resende-Coelho, <strong>Md Mohsin Ali</strong>, Alicen James, Aaron Warren, Landon Gatrell, Ilham Kadhim, Qiang Fu, Jinhu Xiong, Melda Onal, Maria Almeida</p>
-    <p class="venue">Aging, 2025</p>
-    <div class="pub-links">
-      <a href="https://www.aging-us.com/article/206213/text" target="_blank">Paper</a>
-      <a href="https://doi.org/10.18632/aging.206213" target="_blank">DOI</a>
+    <!-- Publication 2 -->
+    <div class="pub-container">
+      <div class="pub-wrapper">
+        <div class="pub-thumbnail">
+          <!-- EDIT: replace with actual paper thumbnail image -->
+          <div style="width: 100%; height: 120px; background: var(--bg-alt); display: grid; place-items: center; color: var(--text-3); font-size: .85rem; text-align: center; padding: 8px;">Paper thumbnail</div>
+        </div>
+        <div class="pub-content">
+          <h3><a href="https://www.biorxiv.org/content/10.1101/2025.03.24.643319v1" target="_blank">Mechanisms of mitochondrial reactive oxygen species action in bone mesenchymal cells</a></h3>
+          <div class="pub-meta">
+            <strong>Md Mohsin Ali</strong>, Intawat Nookaew, Ana Resende-Coelho, Adriana Marques-Carvalho, Aaron Warren, Qiang Fu, Ha-Neui Kim, Charles A. O'Brien, Maria Almeida
+            <div class="pub-venue">bioRxiv (preprint)</div>
+          </div>
+          <div class="pub-section-title summary">Summary:</div>
+          <p class="pub-summary">Using single-cell RNA-seq, we show that mitochondrial reactive oxygen species (ROS) in osteoblast-lineage cells disrupts multiple pathways including PTH signaling, iron metabolism, and proteostasis—but does not drive cellular senescence, suggesting alternative mechanisms drive age-related bone loss.</p>
+        </div>
+      </div>
     </div>
+
+    <!-- Publication 3 -->
+    <div class="pub-container">
+      <div class="pub-wrapper">
+        <div class="pub-thumbnail">
+          <!-- EDIT: replace with actual paper thumbnail image -->
+          <div style="width: 100%; height: 120px; background: var(--bg-alt); display: grid; place-items: center; color: var(--text-3); font-size: .85rem; text-align: center; padding: 8px;">Paper thumbnail</div>
+        </div>
+        <div class="pub-content">
+          <h3><a href="https://www.aging-us.com/article/206213/text" target="_blank">Mitochondrial oxidative stress or decreased autophagy in osteoblast lineage cells is not sufficient to mimic the deleterious effects of aging on bone mechanoresponsiveness</a></h3>
+          <div class="pub-meta">
+            Ana Resende-Coelho, <strong>Md Mohsin Ali</strong>, Alicen James, Aaron Warren, Landon Gatrell, Ilham Kadhim, Qiang Fu, Jinhu Xiong, Melda Onal, Maria Almeida
+            <div class="pub-venue">Aging 17 (3), 610</div>
+          </div>
+          <div class="pub-section-title summary">Summary:</div>
+          <p class="pub-summary">This study examined whether inducing mitochondrial ROS or suppressing autophagy in bone cells can recapitulate aging-like bone dysfunction. Results indicate that these individual stressors are insufficient, pointing to multi-factorial mechanisms of age-related bone loss.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- EDIT: Add more 2025 publications by copying a pub-container block -->
+
   </div>
 
-  <!-- EDIT: add earlier publications. Copy a pub-year + pub-entry block. -->
+  <!-- Earlier Publications Section (optional) -->
+  <div class="year-section">
+    <div class="year-heading">Earlier Work</div>
+    <p style="color: var(--text-2); font-size: .95rem;">Please see my <a href="https://scholar.google.com/citations?user=0NQRb50AAAAJ&hl=en" target="_blank">Google Scholar profile</a> for publications prior to 2025 and complete citation metrics.</p>
+  </div>
 
-  <hr>
-  <p>For the latest full list, please check my <a href="https://scholar.google.com/citations?user=0NQRb50AAAAJ&hl=en" target="_blank">Google Scholar profile</a>. Feel free to <a href="mailto:MdMohsin.Ali@RoswellPark.org">contact me</a> if you cannot access a paper.</p>
 </div>
+
 <footer class="site-footer">&copy; <script>document.write(new Date().getFullYear())</script> Md Mohsin Ali &middot; Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></footer>
-</body></html>
+</body>
+</html>
