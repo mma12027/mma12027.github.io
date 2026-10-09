@@ -4,7 +4,323 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Resources — Md Mohsin Ali</title>
+<style>
+/* ==========================================================
+   Md Mohsin Ali — Academic Portfolio
+   Header style inspired by lab-website layout:
+   big title + subtitle, email block, solid blue nav bar
+   ========================================================== */
+
+:root {
+  --blue:      #1c8cf0;
+  --blue-dark: #1675c9;
+  --blue-deep: #0d5ca8;
+  --text:      #222;
+  --text-2:    #555;
+  --text-3:    #888;
+  --bg:        #fff;
+  --bg-alt:    #f5f7fa;
+  --border:    #e2e6ea;
+  --border-2:  #eef1f4;
+  --nav-bg:    #1c8cf0;
+  --nav-link:  #ffffff;
+  --sans:  -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --serif: Georgia, "Times New Roman", serif;
+  --maxw:  1180px;
+  --content-maxw: 880px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--blue-dark); text-decoration: none; }
+a:hover { text-decoration: underline; }
+img { max-width: 100%; display: block; }
+h1, h2, h3, h4 { line-height: 1.25; }
+p { margin: 0 0 1em; }
+hr { border: none; border-top: 1px solid var(--border-2); margin: 2em 0; }
+::selection { background: rgba(28,140,240,.18); }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+/* ========== HEADER ========== */
+.site-header {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 28px 28px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.site-title h1 {
+  margin: 0;
+  font-size: 2.7rem;
+  font-weight: 800;
+  color: var(--blue);
+  letter-spacing: -.5px;
+  line-height: 1.05;
+}
+.site-title .subtitle {
+  margin: 4px 0 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.header-contact { display: flex; align-items: center; gap: 12px; }
+.header-contact .icon {
+  width: 46px; height: 46px;
+  border: 1.5px solid var(--border);
+  border-radius: 50%;
+  display: grid; place-items: center;
+  color: var(--blue); flex-shrink: 0;
+}
+.header-contact .icon svg { width: 22px; height: 22px; }
+.header-contact .label { font-size: .9rem; color: var(--text-3); line-height: 1.3; }
+.header-contact .value { font-size: 1.05rem; font-weight: 600; color: var(--text); }
+.header-contact .value a { color: var(--text); }
+.header-contact .value a:hover { color: var(--blue); text-decoration: none; }
+
+/* ========== BLUE NAV BAR ========== */
+.navbar { background: var(--nav-bg); position: sticky; top: 0; z-index: 100; }
+.navbar-inner {
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding: 0 28px;
+  display: flex;
+  align-items: center;
+}
+.navbar .nav-links { display: flex; align-items: center; flex-wrap: wrap; }
+.navbar a {
+  color: var(--nav-link);
+  font-size: 1.02rem;
+  font-weight: 600;
+  padding: 15px 16px;
+  display: inline-block;
+  transition: background .15s;
+  white-space: nowrap;
+}
+.navbar a:hover { background: rgba(255,255,255,.18); text-decoration: none; }
+.navbar a.active { background: rgba(0,0,0,.16); }
+.burger {
+  display: none;
+  background: none; border: none; cursor: pointer;
+  color: #fff; padding: 14px 16px; margin-left: auto;
+}
+.burger svg { display: block; }
+
+/* ========== CONTENT ========== */
+.container { max-width: var(--content-maxw); margin: 0 auto; padding: 38px 28px 60px; }
+.container.wide { max-width: var(--maxw); }
+.container h1:first-child, .container h2:first-child { margin-top: 0; }
+
+h2.section-title {
+  font-size: 1.55rem;
+  color: var(--blue-deep);
+  border-bottom: 2px solid var(--border);
+  padding-bottom: .3em;
+  margin: 1.6em 0 .9em;
+}
+h2.section-title:first-child { margin-top: 0; }
+h3 { font-size: 1.15rem; margin: 0 0 .4em; }
+
+/* intro: photo + text */
+.intro { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 10px; }
+.intro .photo { width: 210px; flex-shrink: 0; border-radius: 10px; border: 1px solid var(--border); }
+.intro .intro-text { flex: 1; min-width: 0; }
+.intro .intro-text h1 { margin: 0 0 .2em; font-size: 1.9rem; }
+.intro .role { color: var(--text-2); font-size: 1.05rem; margin-bottom: .8em; }
+
+/* social row */
+.social-row { display: flex; flex-wrap: wrap; gap: 10px; margin: 16px 0 0; }
+.social-row a {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: .9rem; font-weight: 600; color: var(--text-2);
+  border: 1px solid var(--border); padding: 7px 13px; border-radius: 7px;
+  transition: all .15s;
+}
+.social-row a:hover { border-color: var(--blue); color: var(--blue); text-decoration: none; }
+.social-row a svg { width: 16px; height: 16px; }
+
+/* tags */
+.tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin: 12px 0; }
+.tag {
+  font-size: .82rem; font-weight: 500; background: var(--bg-alt);
+  color: var(--text-2); padding: 4px 12px; border-radius: 999px; border: 1px solid var(--border-2);
+}
+
+/* publications */
+.pub-year { font-size: 1.25rem; font-weight: 700; color: var(--blue); margin: 26px 0 6px; }
+.pub-year:first-of-type { margin-top: 0; }
+.pub-entry { padding: 16px 0; border-bottom: 1px solid var(--border-2); }
+.pub-entry:last-child { border-bottom: none; }
+.pub-entry h3 { font-size: 1.05rem; margin-bottom: 4px; line-height: 1.4; }
+.pub-entry .authors { font-size: .93rem; color: var(--text-2); margin-bottom: 2px; }
+.pub-entry .authors strong { color: var(--text); }
+.pub-entry .venue { font-style: italic; font-size: .93rem; margin-bottom: 8px; }
+.pub-links { display: flex; gap: 8px; flex-wrap: wrap; }
+.pub-links a {
+  font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .03em;
+  padding: 3px 11px; border: 1px solid var(--border); border-radius: 4px; color: var(--text-2);
+  transition: all .15s;
+}
+.pub-links a:hover { border-color: var(--blue); color: var(--blue); text-decoration: none; }
+
+/* research cards */
+.research-card {
+  padding: 22px; border: 1px solid var(--border-2); border-left: 4px solid var(--blue);
+  border-radius: 8px; margin-bottom: 18px; background: var(--bg); transition: box-shadow .2s;
+}
+.research-card:hover { box-shadow: 0 4px 16px rgba(28,140,240,.1); }
+.research-card h3 { color: var(--blue-deep); }
+.research-card p { margin: 0; color: var(--text-2); }
+
+/* event rows */
+.event-row { display: grid; grid-template-columns: 110px 1fr; gap: 18px; padding: 15px 0; border-bottom: 1px solid var(--border-2); }
+.event-row:last-child { border-bottom: none; }
+.event-row .when { font-size: .92rem; font-weight: 700; color: var(--blue); padding-top: 2px; }
+.event-row .what strong { font-weight: 700; }
+.event-row .what .sub { color: var(--text-2); font-size: .92rem; }
+
+/* blog */
+.blog-card { padding: 18px 0; border-bottom: 1px solid var(--border-2); }
+.blog-card:last-child { border-bottom: none; }
+.blog-card .date { font-size: .82rem; color: var(--text-3); margin-bottom: 4px; }
+.blog-card h3 a { color: var(--text); }
+.blog-card h3 a:hover { color: var(--blue); }
+.blog-card p { margin: 0; color: var(--text-2); }
+
+/* hobby grid */
+.hobby-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 18px; }
+.hobby-card { border: 1px solid var(--border-2); border-radius: 10px; padding: 22px; }
+.hobby-card h3 { margin-bottom: 6px; }
+.hobby-card p { margin: 0; color: var(--text-2); font-size: .95rem; }
+
+/* footer */
+.site-footer {
+  background: var(--bg-alt); border-top: 1px solid var(--border); padding: 24px 28px;
+  text-align: center; font-size: .88rem; color: var(--text-3); margin-top: 40px;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 760px) {
+  .site-header { padding: 20px; flex-direction: column; align-items: flex-start; gap: 14px; }
+  .site-title h1 { font-size: 2rem; }
+  .site-title .subtitle { font-size: 1.1rem; }
+  .navbar .nav-links { display: none; width: 100%; flex-direction: column; }
+  .navbar .nav-links.open { display: flex; }
+  .navbar .nav-links a { width: 100%; padding: 13px 20px; border-top: 1px solid rgba(255,255,255,.15); }
+  .burger { display: block; }
+  .intro { flex-direction: column; align-items: center; text-align: center; }
+  .intro .photo { width: 170px; }
+  .social-row { justify-content: center; }
+  .event-row { grid-template-columns: 1fr; gap: 2px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+}
+
+
+</style>
 <link rel="stylesheet" href="style.css" />
+<style>
+/* Resources page */
+.resources-summary { color:var(--text-2); margin-bottom:18px; }
+.resources-summary strong { color:var(--blue-deep); }
+.resources-topics {
+  display:grid; grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:10px; margin:20px 0 26px;
+}
+.resources-topics a {
+  display:flex; align-items:center; justify-content:space-between;
+  gap:12px; padding:11px 14px; border:1px solid var(--border);
+  border-radius:7px; background:var(--bg-alt); font-size:.9rem;
+  font-weight:600; line-height:1.4;
+}
+.resources-topics a:hover { background:#edf6ff; border-color:var(--blue); text-decoration:none; }
+.topic-total { flex-shrink:0; min-width:25px; text-align:center; color:var(--text-2); font-weight:500; }
+.resources-tools {
+  display:grid; grid-template-columns:minmax(0,1fr) 240px 120px;
+  gap:14px; padding:18px; border:1px solid var(--border);
+  border-radius:8px; background:var(--bg-alt);
+}
+.resources-tools label { display:block; font-size:.84rem; color:var(--text-2); font-weight:600; }
+.resources-tools input, .resources-tools select {
+  display:block; width:100%; min-width:0; margin-top:6px;
+  padding:10px 11px; min-height:43px; border:1px solid var(--border);
+  border-radius:5px; background:#fff; color:var(--text);
+  font-family:inherit; font-size:16px; line-height:1.3;
+}
+.resources-tools input:focus, .resources-tools select:focus { outline:2px solid var(--blue); outline-offset:1px; }
+.resources-results {
+  display:flex; justify-content:space-between; align-items:center; gap:12px;
+  margin:12px 0 24px; color:var(--text-2); font-size:.9rem;
+}
+.resources-clear { border:0; background:transparent; padding:6px 0 6px 8px; font:inherit; font-weight:600; color:var(--blue-dark); cursor:pointer; }
+.resources-clear:hover { text-decoration:underline; }
+.paper-category { scroll-margin-top:90px; margin:34px 0 42px; }
+.paper-category-heading {
+  display:flex; align-items:baseline; justify-content:space-between; gap:16px;
+  padding-bottom:8px; border-bottom:2px solid var(--border); margin-bottom:9px;
+}
+.paper-category-heading h3 { color:var(--blue-deep); font-size:1.35rem; margin:0; }
+.paper-category-count { white-space:nowrap; color:var(--text-3); font-size:.85rem; }
+.paper-category-description { color:var(--text-2); font-size:.95rem; margin-bottom:15px; }
+.paper-list { margin:0; }
+.paper-entry {
+  display:grid; grid-template-columns:32px minmax(0,1fr); gap:12px;
+  padding:19px 0; border-bottom:1px solid var(--border-2);
+}
+.paper-entry:last-child { border-bottom:0; }
+.paper-number { color:var(--blue); font-size:.88rem; font-weight:700; padding-top:3px; }
+.paper-entry h4 { font-size:1.04rem; line-height:1.45; margin:0 0 6px; }
+.paper-entry h4 a { color:var(--blue-deep); }
+.paper-entry p { margin:0 0 4px; }
+.paper-authors { color:var(--text-2); font-size:.89rem; }
+.paper-meta { color:var(--text-2); font-size:.9rem; }
+.paper-links { display:flex; flex-wrap:wrap; align-items:center; gap:7px 14px; margin-top:7px; font-size:.83rem; }
+.paper-doi { overflow-wrap:anywhere; }
+.paper-type {
+  display:inline-block; padding:2px 8px; border-radius:4px;
+  background:var(--bg-alt); color:var(--text-2); font-size:.73rem; line-height:1.5;
+}
+.paper-type.preprint { background:#fff3dd; color:#805000; }
+.paper-type.review { background:#edf6ff; color:var(--blue-deep); }
+.resources-empty { padding:25px 18px; text-align:center; border:1px solid var(--border); border-radius:8px; color:var(--text-2); }
+.resources-other { margin-top:50px; padding-top:18px; border-top:2px solid var(--border); }
+.resources-other .research-card p + p { margin-top:1em; }
+[hidden] { display:none !important; }
+@media (max-width:760px) {
+  .resources-tools { grid-template-columns:minmax(0,1fr) 120px; }
+  .resources-search-field { grid-column:1 / -1; }
+  .resources-topics { grid-template-columns:1fr; }
+  .paper-category-heading { align-items:flex-start; }
+  .paper-category-heading h3 { font-size:1.18rem; }
+  .paper-entry { grid-template-columns:25px minmax(0,1fr); gap:9px; }
+}
+@media (max-width:390px) {
+  .resources-tools { grid-template-columns:1fr; }
+  .resources-search-field { grid-column:auto; }
+}
+@media print {
+  .navbar, .resources-tools, .resources-results, .resources-topics { display:none; }
+  .container { max-width:none; padding:16px 0; }
+  .paper-entry { break-inside:avoid; }
+  .paper-category-heading { break-after:avoid; }
+  .paper-category { margin-bottom:25px; }
+  .resources-other { break-before:page; }
+}
+</style>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231c8cf0'/%3E%3Ctext x='50%25' y='54%25' font-family='system-ui,sans-serif' font-size='32' font-weight='700' fill='%23fff' text-anchor='middle' dominant-baseline='middle'%3EMA%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
@@ -45,8 +361,549 @@
 
 <div class="container">
   <h1 style="color:#1c8cf0">Resources</h1>
-  <p>Curated links and resources for cancer biology, tumor metabolism, and related research areas.</p>
+  <p>Key papers and practical resources for bone metastasis, functional genomics, tumor metabolism, chromatin regulation, and cancer biology.</p>
 
+  <h2 class="section-title">Key Papers</h2>
+  <p class="resources-summary"><strong>42 papers</strong> across eight research areas. Browse by topic or search by title, author, keyword, or DOI.</p>
+  <nav class="resources-topics" aria-label="Paper topics">
+    <a href="#bone-metastasis-bica" data-topic="bone-metastasis-bica"><span>Bone Metastasis &amp; BICA</span><span class="topic-total">5</span></a>
+    <a href="#crispr-functional-genomics" data-topic="crispr-functional-genomics"><span>CRISPR Screening &amp; Functional Genomics</span><span class="topic-total">5</span></a>
+    <a href="#nuclear-metabolism-chromatin" data-topic="nuclear-metabolism-chromatin"><span>Nuclear Metabolism &amp; Chromatin Regulation</span><span class="topic-total">5</span></a>
+    <a href="#nuclear-organization-speckles" data-topic="nuclear-organization-speckles"><span>Nuclear Organization, Speckles &amp; Stress Responses</span><span class="topic-total">8</span></a>
+    <a href="#condensates-transcription" data-topic="condensates-transcription"><span>Biomolecular Condensates &amp; Transcription</span><span class="topic-total">4</span></a>
+    <a href="#cancer-metabolism-stress" data-topic="cancer-metabolism-stress"><span>Cancer Metabolism, Hypoxia &amp; Ferroptosis</span><span class="topic-total">5</span></a>
+    <a href="#prostate-metastatic-signaling" data-topic="prostate-metastatic-signaling"><span>Prostate Cancer &amp; Metastatic Signaling</span><span class="topic-total">6</span></a>
+    <a href="#tumor-immunity-t-cells" data-topic="tumor-immunity-t-cells"><span>Tumor Immunity &amp; T-Cell Fate</span><span class="topic-total">4</span></a>
+  </nav>
+  <div class="resources-tools" role="search" aria-label="Search and filter papers">
+    <label class="resources-search-field" for="paper-search">Search papers<input id="paper-search" type="search" placeholder="Title, author, gene, or DOI" autocomplete="off" /></label>
+    <label for="paper-topic">Topic<select id="paper-topic"><option value="">All topics</option>
+      <option value="bone-metastasis-bica">Bone Metastasis &amp; BICA</option>
+      <option value="crispr-functional-genomics">CRISPR Screening &amp; Functional Genomics</option>
+      <option value="nuclear-metabolism-chromatin">Nuclear Metabolism &amp; Chromatin Regulation</option>
+      <option value="nuclear-organization-speckles">Nuclear Organization, Speckles &amp; Stress Responses</option>
+      <option value="condensates-transcription">Biomolecular Condensates &amp; Transcription</option>
+      <option value="cancer-metabolism-stress">Cancer Metabolism, Hypoxia &amp; Ferroptosis</option>
+      <option value="prostate-metastatic-signaling">Prostate Cancer &amp; Metastatic Signaling</option>
+      <option value="tumor-immunity-t-cells">Tumor Immunity &amp; T-Cell Fate</option>
+    </select></label>
+    <label for="paper-year">Year<select id="paper-year"><option value="">All years</option>
+      <option value="2026">2026</option>
+      <option value="2025">2025</option>
+      <option value="2024">2024</option>
+      <option value="2023">2023</option>
+      <option value="2022">2022</option>
+      <option value="2021">2021</option>
+      <option value="2020">2020</option>
+      <option value="2019">2019</option>
+      <option value="2018">2018</option>
+      <option value="2017">2017</option>
+      <option value="2015">2015</option>
+      <option value="2013">2013</option>
+      <option value="2012">2012</option>
+      <option value="2011">2011</option>
+      <option value="2010">2010</option>
+      <option value="2009">2009</option>
+      <option value="2008">2008</option>
+    </select></label>
+  </div>
+  <div class="resources-results"><span id="paper-results" role="status" aria-live="polite">42 papers across 8 topics</span><button id="paper-clear" class="resources-clear" type="button">Clear filters</button></div>
+  <p id="paper-empty" class="resources-empty" hidden>No papers match these filters. Try another term or clear the filters.</p>
+  <section class="paper-category" id="bone-metastasis-bica" aria-labelledby="bone-metastasis-bica-heading">
+    <div class="paper-category-heading"><h3 id="bone-metastasis-bica-heading">Bone Metastasis &amp; BICA</h3><span class="paper-category-count">5 papers</span></div>
+    <p class="paper-category-description">Bone culture models, osteogenic niches, calcium signaling, and skeletal metastasis.</p>
+    <div class="paper-list">
+      <article class="paper-entry" id="paper-seed-18" data-year="2024" data-search="Differential bone morphology and hypoxia activity in skeletal metastases of ER+ and ER− breast cancer Das, A., Barry, M.M., Ernst, C.A. et al. Das A et al. Commun. Biol. 2024 10.1038/s42003-024-07247-6 Bone Metastasis &amp; BICA hypoxia ER-positive ER-negative breast cancer bone">
+        <span class="paper-number" aria-hidden="true">01</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/s42003-024-07247-6" target="_blank" rel="noopener noreferrer">Differential bone morphology and hypoxia activity in skeletal metastases of ER+ and ER− breast cancer</a></h4>
+          <p class="paper-authors">Das A et al.</p>
+          <p class="paper-meta"><em>Commun. Biol.</em>. 2024;7:1545.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/s42003-024-07247-6" target="_blank" rel="noopener noreferrer">DOI: 10.1038/s42003-024-07247-6</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-19" data-year="2022" data-search="Optimization and Characterization of a Bone Culture Model to Study Prostate Cancer Bone Metastasis Wu YH, Gugala Z, Barry MM, Shen Y, Dasgupta S, Wang H Wu YH et al. Mol. Cancer Ther. 2022 10.1158/1535-7163.MCT-21-0684 Bone Metastasis &amp; BICA BICA bone culture prostate cancer">
+        <span class="paper-number" aria-hidden="true">02</span>
+        <div>
+          <h4><a href="https://doi.org/10.1158/1535-7163.MCT-21-0684" target="_blank" rel="noopener noreferrer">Optimization and Characterization of a Bone Culture Model to Study Prostate Cancer Bone Metastasis</a></h4>
+          <p class="paper-authors">Wu YH et al.</p>
+          <p class="paper-meta"><em>Mol. Cancer Ther.</em>. 2022;21:1360–1368.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1158/1535-7163.MCT-21-0684" target="_blank" rel="noopener noreferrer">DOI: 10.1158/1535-7163.MCT-21-0684</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-15" data-year="2018" data-search="The Osteogenic Niche Is a Calcium Reservoir of Bone Micrometastases and Confers Unexpected Therapeutic Vulnerability Wang H, Tian L, Liu J et al. Wang H et al. Cancer Cell 2018 10.1016/j.ccell.2018.10.002 Bone Metastasis &amp; BICA calcium osteogenic niche bone micrometastases">
+        <span class="paper-number" aria-hidden="true">03</span>
+        <div>
+          <h4><a href="https://doi.org/10.1016/j.ccell.2018.10.002" target="_blank" rel="noopener noreferrer">The Osteogenic Niche Is a Calcium Reservoir of Bone Micrometastases and Confers Unexpected Therapeutic Vulnerability</a></h4>
+          <p class="paper-authors">Wang H et al.</p>
+          <p class="paper-meta"><em>Cancer Cell</em>. 2018;34:823–839.e7.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1016/j.ccell.2018.10.002" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.ccell.2018.10.002</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-14" data-year="2017" data-search="Bone-in-culture array as a platform to model early-stage bone metastases and discover anti-metastasis therapies Wang, H., Tian, L., Goldstein, A. et al. Wang H et al. Nat. Commun. 2017 10.1038/ncomms15045 Bone Metastasis &amp; BICA BICA bone-in-culture array ex vivo drug screening">
+        <span class="paper-number" aria-hidden="true">04</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/ncomms15045" target="_blank" rel="noopener noreferrer">Bone-in-culture array as a platform to model early-stage bone metastases and discover anti-metastasis therapies</a></h4>
+          <p class="paper-authors">Wang H et al.</p>
+          <p class="paper-meta"><em>Nat. Commun.</em>. 2017;8:15045.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/ncomms15045" target="_blank" rel="noopener noreferrer">DOI: 10.1038/ncomms15045</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/28429794/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-13" data-year="2015" data-search="The osteogenic niche promotes early-stage bone colonization of disseminated breast cancer cells Wang, Hai et al. Wang H et al. Cancer Cell 2015 10.1016/j.ccell.2014.11.017 Bone Metastasis &amp; BICA osteogenic niche disseminated breast cancer bone colonization">
+        <span class="paper-number" aria-hidden="true">05</span>
+        <div>
+          <h4><a href="https://doi.org/10.1016/j.ccell.2014.11.017" target="_blank" rel="noopener noreferrer">The osteogenic niche promotes early-stage bone colonization of disseminated breast cancer cells</a></h4>
+          <p class="paper-authors">Wang H et al.</p>
+          <p class="paper-meta"><em>Cancer Cell</em>. 2015;27:193–210.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1016/j.ccell.2014.11.017" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.ccell.2014.11.017</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="paper-category" id="crispr-functional-genomics" aria-labelledby="crispr-functional-genomics-heading">
+    <div class="paper-category-heading"><h3 id="crispr-functional-genomics-heading">CRISPR Screening &amp; Functional Genomics</h3><span class="paper-category-count">5 papers</span></div>
+    <p class="paper-category-description">Pooled genetic screens, cancer dependencies, in vivo screening, and metastasis mapping.</p>
+    <div class="paper-list">
+      <article class="paper-entry" id="paper-seed-3" data-year="2026" data-search="In vivo genome-wide CRISPR screens of human T cells in solid tumours Liu, Q., Chen, P.A., Urs, E. et al. Liu Q et al. Nature 2026 10.1038/s41586-026-10906-9 CRISPR Screening &amp; Functional Genomics human T cells CRISPR in vivo GNAS P2RY8">
+        <span class="paper-number" aria-hidden="true">06</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/s41586-026-10906-9" target="_blank" rel="noopener noreferrer">In vivo genome-wide CRISPR screens of human T cells in solid tumours</a></h4>
+          <p class="paper-authors">Liu Q et al.</p>
+          <p class="paper-meta"><em>Nature</em>. 2026. Online publication.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/s41586-026-10906-9" target="_blank" rel="noopener noreferrer">DOI: 10.1038/s41586-026-10906-9</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42587162/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-20" data-year="2023" data-search="Unbiased transcription factor CRISPR screen identifies ZNF800 as master repressor of enteroendocrine differentiation Lin Lin et al. Lin L et al. Science 2023 10.1126/science.adi2246 CRISPR Screening &amp; Functional Genomics ZNF800 transcription factor CRISPR enteroendocrine PAX4">
+        <span class="paper-number" aria-hidden="true">07</span>
+        <div>
+          <h4><a href="https://doi.org/10.1126/science.adi2246" target="_blank" rel="noopener noreferrer">Unbiased transcription factor CRISPR screen identifies ZNF800 as master repressor of enteroendocrine differentiation</a></h4>
+          <p class="paper-authors">Lin L et al.</p>
+          <p class="paper-meta"><em>Science</em>. 2023;382:451–458.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1126/science.adi2246" target="_blank" rel="noopener noreferrer">DOI: 10.1126/science.adi2246</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/37883554/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-7" data-year="2021" data-search="Functional Genomics Identifies Metabolic Vulnerabilities in Pancreatic Cancer Biancur, Douglas E et al. Biancur DE et al. Cell Metab. 2021 10.1016/j.cmet.2020.10.018 CRISPR Screening &amp; Functional Genomics functional genomics metabolic dependency pancreatic cancer">
+        <span class="paper-number" aria-hidden="true">08</span>
+        <div>
+          <h4><a href="https://doi.org/10.1016/j.cmet.2020.10.018" target="_blank" rel="noopener noreferrer">Functional Genomics Identifies Metabolic Vulnerabilities in Pancreatic Cancer</a></h4>
+          <p class="paper-authors">Biancur DE et al.</p>
+          <p class="paper-meta"><em>Cell Metab.</em>. 2021;33:199–210.e8.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1016/j.cmet.2020.10.018" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.cmet.2020.10.018</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-8" data-year="2020" data-search="A metastasis map of human cancer cell lines Jin, X., Demere, Z., Nair, K. et al. Jin X et al. Nature 2020 10.1038/s41586-020-2969-2 CRISPR Screening &amp; Functional Genomics metastasis map human cancer cell lines">
+        <span class="paper-number" aria-hidden="true">09</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/s41586-020-2969-2" target="_blank" rel="noopener noreferrer">A metastasis map of human cancer cell lines</a></h4>
+          <p class="paper-authors">Jin X et al.</p>
+          <p class="paper-meta"><em>Nature</em>. 2020;588:331–336.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/s41586-020-2969-2" target="_blank" rel="noopener noreferrer">DOI: 10.1038/s41586-020-2969-2</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-21" data-year="2015" data-search="High-Resolution CRISPR Screens Reveal Fitness Genes and Genotype-Specific Cancer Liabilities Hart T, Chandrashekhar M, Aregger M, Steinhart Z, Brown KR, MacLeod G, Mis M, Zimmermann M, Fradet-Turcotte A, Sun S, Mero P, Dirks P, Sidhu S, Roth FP, Rissland OS, Durocher D, Angers S, Moffat J Hart T et al. Cell 2015 10.1016/j.cell.2015.11.015 CRISPR Screening &amp; Functional Genomics CRISPR essential genes fitness cancer liabilities">
+        <span class="paper-number" aria-hidden="true">10</span>
+        <div>
+          <h4><a href="https://doi.org/10.1016/j.cell.2015.11.015" target="_blank" rel="noopener noreferrer">High-Resolution CRISPR Screens Reveal Fitness Genes and Genotype-Specific Cancer Liabilities</a></h4>
+          <p class="paper-authors">Hart T et al.</p>
+          <p class="paper-meta"><em>Cell</em>. 2015;163:1515–1526.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1016/j.cell.2015.11.015" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.cell.2015.11.015</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="paper-category" id="nuclear-metabolism-chromatin" aria-labelledby="nuclear-metabolism-chromatin-heading">
+    <div class="paper-category-heading"><h3 id="nuclear-metabolism-chromatin-heading">Nuclear Metabolism &amp; Chromatin Regulation</h3><span class="paper-category-count">5 papers</span></div>
+    <p class="paper-category-description">Nuclear metabolic enzymes, metabolite signaling, histone modifications, and chromatin accessibility.</p>
+    <div class="paper-list">
+      <article class="paper-entry" id="paper-seed-1" data-year="2026" data-search="A transcriptional biosensor reveals mechanisms of α-ketoglutarate signaling to chromatin Alex C. Sternisha et al. Sternisha AC et al. Science 2026 10.1126/science.adx8675 Nuclear Metabolism &amp; Chromatin Regulation alpha-ketoglutarate αKG GPT2 SLC25A11 NtcA biosensor">
+        <span class="paper-number" aria-hidden="true">11</span>
+        <div>
+          <h4><a href="https://doi.org/10.1126/science.adx8675" target="_blank" rel="noopener noreferrer">A transcriptional biosensor reveals mechanisms of α-ketoglutarate signaling to chromatin</a></h4>
+          <p class="paper-authors">Sternisha AC et al.</p>
+          <p class="paper-meta"><em>Science</em>. 2026;393:eadx8675.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1126/science.adx8675" target="_blank" rel="noopener noreferrer">DOI: 10.1126/science.adx8675</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42462028/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-18" data-year="2026" data-search="Nuclear-specific reductive carboxylation of alpha-ketoglutarate fuels histone acetylation to induce chromatin accessibility and gene activation Sawant Dessai A, Elhalawany NA, et al. Sawant Dessai A et al. Nat Commun 2026 10.1038/s41467-026-74786-3 Nuclear Metabolism &amp; Chromatin Regulation IDH2 ACO2 KAT2A GCN5 alpha-ketoglutarate αKG citrate reductive carboxylation histone acetylation">
+        <span class="paper-number" aria-hidden="true">12</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/s41467-026-74786-3" target="_blank" rel="noopener noreferrer">Nuclear-specific reductive carboxylation of alpha-ketoglutarate fuels histone acetylation to induce chromatin accessibility and gene activation</a></h4>
+          <p class="paper-authors">Sawant Dessai A et al.</p>
+          <p class="paper-meta"><em>Nat Commun</em>. 2026;17:8216.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/s41467-026-74786-3" target="_blank" rel="noopener noreferrer">DOI: 10.1038/s41467-026-74786-3</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42386731/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-6" data-year="2018" data-search="Spatiotemporal control of acetyl-CoA metabolism in chromatin regulation Sivanand S, Viney I, Wellen KE Sivanand S, Viney I &amp; Wellen KE Trends Biochem Sci 2018 10.1016/j.tibs.2017.11.004 Nuclear Metabolism &amp; Chromatin Regulation acetyl-CoA histone acetylation metabolism">
+        <span class="paper-number" aria-hidden="true">13</span>
+        <div>
+          <h4><a href="https://doi.org/10.1016/j.tibs.2017.11.004" target="_blank" rel="noopener noreferrer">Spatiotemporal control of acetyl-CoA metabolism in chromatin regulation</a></h4>
+          <p class="paper-authors">Sivanand S, Viney I &amp; Wellen KE</p>
+          <p class="paper-meta"><em>Trends Biochem Sci</em>. 2018;43(1):61–74.</p>
+          <div class="paper-links"><span class="paper-type review">Review</span><a class="paper-doi" href="https://doi.org/10.1016/j.tibs.2017.11.004" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.tibs.2017.11.004</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/29174173/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-7" data-year="2017" data-search="The impact of cellular metabolism on chromatin dynamics and epigenetics Reid MA, Dai Z, Locasale JW Reid MA, Dai Z &amp; Locasale JW Nat Cell Biol 2017 10.1038/ncb3629 Nuclear Metabolism &amp; Chromatin Regulation chromatin epigenetics histone metabolism">
+        <span class="paper-number" aria-hidden="true">14</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/ncb3629" target="_blank" rel="noopener noreferrer">The impact of cellular metabolism on chromatin dynamics and epigenetics</a></h4>
+          <p class="paper-authors">Reid MA, Dai Z &amp; Locasale JW</p>
+          <p class="paper-meta"><em>Nat Cell Biol</em>. 2017;19(11):1298–306.</p>
+          <div class="paper-links"><span class="paper-type review">Review</span><a class="paper-doi" href="https://doi.org/10.1038/ncb3629" target="_blank" rel="noopener noreferrer">DOI: 10.1038/ncb3629</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/29058720/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-5" data-year="2009" data-search="ATP-citrate lyase links cellular metabolism to histone acetylation Wellen KE, Hatzivassiliou G, Sachdeva UM, Bui TV, Cross JR, Thompson CB Wellen KE et al. Science 2009 10.1126/science.1164097 Nuclear Metabolism &amp; Chromatin Regulation ACLY ATP-citrate lyase acetyl-CoA histone acetylation">
+        <span class="paper-number" aria-hidden="true">15</span>
+        <div>
+          <h4><a href="https://doi.org/10.1126/science.1164097" target="_blank" rel="noopener noreferrer">ATP-citrate lyase links cellular metabolism to histone acetylation</a></h4>
+          <p class="paper-authors">Wellen KE et al.</p>
+          <p class="paper-meta"><em>Science</em>. 2009;324(5930):1076–80.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1126/science.1164097" target="_blank" rel="noopener noreferrer">DOI: 10.1126/science.1164097</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/19461003/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="paper-category" id="nuclear-organization-speckles" aria-labelledby="nuclear-organization-speckles-heading">
+    <div class="paper-category-heading"><h3 id="nuclear-organization-speckles-heading">Nuclear Organization, Speckles &amp; Stress Responses</h3><span class="paper-category-count">8 papers</span></div>
+    <p class="paper-category-description">Nuclear speckles, stress bodies, lamina-associated domains, and the spatial organization of the genome.</p>
+    <div class="paper-list">
+      <article class="paper-entry" id="paper-important-1" data-year="2025" data-search="SWING regions prime chromatin for nuclear speckle–mediated gene regulation Yu R, Sas-Nowosielska H, Sawant Dessai A, Oubarri A, Kim H, Faunce CL, et al. Yu R et al. bioRxiv 2025 10.1101/2025.10.01.679801 Nuclear Organization, Speckles &amp; Stress Responses SWING SON SRRM2 speckles dTAG lamina">
+        <span class="paper-number" aria-hidden="true">16</span>
+        <div>
+          <h4><a href="https://doi.org/10.1101/2025.10.01.679801" target="_blank" rel="noopener noreferrer">SWING regions prime chromatin for nuclear speckle–mediated gene regulation</a></h4>
+          <p class="paper-authors">Yu R et al.</p>
+          <p class="paper-meta"><em>bioRxiv</em>. 2025.</p>
+          <div class="paper-links"><span class="paper-type preprint">Preprint</span><a class="paper-doi" href="https://doi.org/10.1101/2025.10.01.679801" target="_blank" rel="noopener noreferrer">DOI: 10.1101/2025.10.01.679801</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-10" data-year="2021" data-search="p53 mediates target gene association with nuclear speckles for amplified RNA expression Alexander KA, Coté A, Nguyen SC, Zhang L, Gholamalamdari O, Agudelo-Garcia P, et al. Alexander KA et al. Mol Cell 2021 10.1016/j.molcel.2021.03.006 Nuclear Organization, Speckles &amp; Stress Responses p53 p21 gene association nuclear speckles">
+        <span class="paper-number" aria-hidden="true">17</span>
+        <div>
+          <h4><a href="https://doi.org/10.1016/j.molcel.2021.03.006" target="_blank" rel="noopener noreferrer">p53 mediates target gene association with nuclear speckles for amplified RNA expression</a></h4>
+          <p class="paper-authors">Alexander KA et al.</p>
+          <p class="paper-meta"><em>Mol Cell</em>. 2021;81(8):1666–81.e6.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1016/j.molcel.2021.03.006" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.molcel.2021.03.006</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/33823140/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-9" data-year="2018" data-search="Mapping 3D genome organization relative to nuclear compartments using TSA-Seq as a cytological ruler Chen Y, Zhang Y, Wang Y, Zhang L, Brinkman EK, Adam SA, et al. Chen Y et al. J Cell Biol 2018 10.1083/jcb.201807108 Nuclear Organization, Speckles &amp; Stress Responses TSA-seq SON nuclear compartments 3D genome">
+        <span class="paper-number" aria-hidden="true">18</span>
+        <div>
+          <h4><a href="https://doi.org/10.1083/jcb.201807108" target="_blank" rel="noopener noreferrer">Mapping 3D genome organization relative to nuclear compartments using TSA-Seq as a cytological ruler</a></h4>
+          <p class="paper-authors">Chen Y et al.</p>
+          <p class="paper-meta"><em>J Cell Biol</em>. 2018;217(11):4025–48.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1083/jcb.201807108" target="_blank" rel="noopener noreferrer">DOI: 10.1083/jcb.201807108</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/30154186/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-15" data-year="2017" data-search="Lamina-associated domains: links with chromosome architecture, heterochromatin, and gene repression van Steensel B, Belmont AS van Steensel B &amp; Belmont AS Cell 2017 10.1016/j.cell.2017.04.022 Nuclear Organization, Speckles &amp; Stress Responses lamina-associated domains LAD heterochromatin repression">
+        <span class="paper-number" aria-hidden="true">19</span>
+        <div>
+          <h4><a href="https://doi.org/10.1016/j.cell.2017.04.022" target="_blank" rel="noopener noreferrer">Lamina-associated domains: links with chromosome architecture, heterochromatin, and gene repression</a></h4>
+          <p class="paper-authors">van Steensel B &amp; Belmont AS</p>
+          <p class="paper-meta"><em>Cell</em>. 2017;169(5):780–91.</p>
+          <div class="paper-links"><span class="paper-type review">Review</span><a class="paper-doi" href="https://doi.org/10.1016/j.cell.2017.04.022" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.cell.2017.04.022</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/28525751/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-8" data-year="2011" data-search="Nuclear speckles Spector DL, Lamond AI Spector DL &amp; Lamond AI Cold Spring Harb Perspect Biol 2011 10.1101/cshperspect.a000646 Nuclear Organization, Speckles &amp; Stress Responses nuclear speckles splicing">
+        <span class="paper-number" aria-hidden="true">20</span>
+        <div>
+          <h4><a href="https://doi.org/10.1101/cshperspect.a000646" target="_blank" rel="noopener noreferrer">Nuclear speckles</a></h4>
+          <p class="paper-authors">Spector DL &amp; Lamond AI</p>
+          <p class="paper-meta"><em>Cold Spring Harb Perspect Biol</em>. 2011;3(2):a000646.</p>
+          <div class="paper-links"><span class="paper-type review">Review</span><a class="paper-doi" href="https://doi.org/10.1101/cshperspect.a000646" target="_blank" rel="noopener noreferrer">DOI: 10.1101/cshperspect.a000646</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/20926517/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-17" data-year="2010" data-search="Nuclear stress bodies Biamonti G, Vourc&#x27;h C Biamonti G &amp; Vourc&#x27;h C Cold Spring Harb Perspect Biol 2010 10.1101/cshperspect.a000695 Nuclear Organization, Speckles &amp; Stress Responses nuclear stress bodies heat shock">
+        <span class="paper-number" aria-hidden="true">21</span>
+        <div>
+          <h4><a href="https://doi.org/10.1101/cshperspect.a000695" target="_blank" rel="noopener noreferrer">Nuclear stress bodies</a></h4>
+          <p class="paper-authors">Biamonti G &amp; Vourc&#x27;h C</p>
+          <p class="paper-meta"><em>Cold Spring Harb Perspect Biol</em>. 2010;2(6):a000695.</p>
+          <div class="paper-links"><span class="paper-type review">Review</span><a class="paper-doi" href="https://doi.org/10.1101/cshperspect.a000695" target="_blank" rel="noopener noreferrer">DOI: 10.1101/cshperspect.a000695</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/20516127/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-14" data-year="2008" data-search="Domain organization of human chromosomes revealed by mapping of nuclear lamina interactions Guelen L, Pagie L, Brasset E, Meuleman W, Faza MB, Talhout W, et al. Guelen L et al. Nature 2008 10.1038/nature06947 Nuclear Organization, Speckles &amp; Stress Responses lamina-associated domains LAD chromosomes">
+        <span class="paper-number" aria-hidden="true">22</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/nature06947" target="_blank" rel="noopener noreferrer">Domain organization of human chromosomes revealed by mapping of nuclear lamina interactions</a></h4>
+          <p class="paper-authors">Guelen L et al.</p>
+          <p class="paper-meta"><em>Nature</em>. 2008;453(7197):948–51.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/nature06947" target="_blank" rel="noopener noreferrer">DOI: 10.1038/nature06947</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/18463634/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-16" data-year="2008" data-search="Transcriptional repression mediated by repositioning of genes to the nuclear lamina Reddy KL, Zullo JM, Bertolino E, Singh H Reddy KL et al. Nature 2008 10.1038/nature06727 Nuclear Organization, Speckles &amp; Stress Responses nuclear lamina gene repositioning repression">
+        <span class="paper-number" aria-hidden="true">23</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/nature06727" target="_blank" rel="noopener noreferrer">Transcriptional repression mediated by repositioning of genes to the nuclear lamina</a></h4>
+          <p class="paper-authors">Reddy KL et al.</p>
+          <p class="paper-meta"><em>Nature</em>. 2008;452(7184):243–7.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/nature06727" target="_blank" rel="noopener noreferrer">DOI: 10.1038/nature06727</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/18272965/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="paper-category" id="condensates-transcription" aria-labelledby="condensates-transcription-heading">
+    <div class="paper-category-heading"><h3 id="condensates-transcription-heading">Biomolecular Condensates &amp; Transcription</h3><span class="paper-category-count">4 papers</span></div>
+    <p class="paper-category-description">Phase separation, transcriptional condensates, pioneer factors, and enhancer regulation.</p>
+    <div class="paper-list">
+      <article class="paper-entry" id="paper-important-21" data-year="2025" data-search="Targeting FOXM1 condensates reduces breast tumour growth and metastasis Xie F, Zhou X, Ran Y, Li R, Zou J, Wan S, et al. Xie F et al. Nature 2025 10.1038/s41586-024-08421-w Biomolecular Condensates &amp; Transcription FOXM1 condensates breast tumour metastasis">
+        <span class="paper-number" aria-hidden="true">24</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/s41586-024-08421-w" target="_blank" rel="noopener noreferrer">Targeting FOXM1 condensates reduces breast tumour growth and metastasis</a></h4>
+          <p class="paper-authors">Xie F et al.</p>
+          <p class="paper-meta"><em>Nature</em>. 2025;638(8052):1112–21.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/s41586-024-08421-w" target="_blank" rel="noopener noreferrer">DOI: 10.1038/s41586-024-08421-w</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-13" data-year="2024" data-search="FOXA1 forms biomolecular condensates that unpack condensed chromatin to function as a pioneer factor Ji D, Shao C, Yu J, Hou Y, Gao X, Wu Y, et al. Ji D et al. Mol Cell 2024 10.1016/j.molcel.2023.11.020 Biomolecular Condensates &amp; Transcription FOXA1 pioneer factor condensed chromatin">
+        <span class="paper-number" aria-hidden="true">25</span>
+        <div>
+          <h4><a href="https://doi.org/10.1016/j.molcel.2023.11.020" target="_blank" rel="noopener noreferrer">FOXA1 forms biomolecular condensates that unpack condensed chromatin to function as a pioneer factor</a></h4>
+          <p class="paper-authors">Ji D et al.</p>
+          <p class="paper-meta"><em>Mol Cell</em>. 2024;84(2):244–60.e7.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1016/j.molcel.2023.11.020" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.molcel.2023.11.020</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/38101414/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-11" data-year="2018" data-search="Coactivator condensation at super-enhancers links phase separation and gene control Sabari BR, Dall&#x27;Agnese A, Boija A, Klein IA, Coffey EL, Shrinivas K, et al. Sabari BR et al. Science 2018 10.1126/science.aar3958 Biomolecular Condensates &amp; Transcription BRD4 MED1 super-enhancers phase separation">
+        <span class="paper-number" aria-hidden="true">26</span>
+        <div>
+          <h4><a href="https://doi.org/10.1126/science.aar3958" target="_blank" rel="noopener noreferrer">Coactivator condensation at super-enhancers links phase separation and gene control</a></h4>
+          <p class="paper-authors">Sabari BR et al.</p>
+          <p class="paper-meta"><em>Science</em>. 2018;361(6400):eaar3958.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1126/science.aar3958" target="_blank" rel="noopener noreferrer">DOI: 10.1126/science.aar3958</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/29930091/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-12" data-year="2018" data-search="Transcription factors activate genes through the phase-separation capacity of their activation domains Boija A, Klein IA, Sabari BR, Dall&#x27;Agnese A, Coffey EL, Zamudio AV, et al. Boija A et al. Cell 2018 10.1016/j.cell.2018.10.042 Biomolecular Condensates &amp; Transcription transcription factor activation domains phase separation">
+        <span class="paper-number" aria-hidden="true">27</span>
+        <div>
+          <h4><a href="https://doi.org/10.1016/j.cell.2018.10.042" target="_blank" rel="noopener noreferrer">Transcription factors activate genes through the phase-separation capacity of their activation domains</a></h4>
+          <p class="paper-authors">Boija A et al.</p>
+          <p class="paper-meta"><em>Cell</em>. 2018;175(7):1842–55.e16.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1016/j.cell.2018.10.042" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.cell.2018.10.042</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/30449618/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="paper-category" id="cancer-metabolism-stress" aria-labelledby="cancer-metabolism-stress-heading">
+    <div class="paper-category-heading"><h3 id="cancer-metabolism-stress-heading">Cancer Metabolism, Hypoxia &amp; Ferroptosis</h3><span class="paper-category-count">5 papers</span></div>
+    <p class="paper-category-description">Metabolic reprogramming, oxygen availability, lipid metabolism, oxidative stress, and ferroptosis.</p>
+    <div class="paper-list">
+      <article class="paper-entry" id="paper-seed-5" data-year="2025" data-search="Targeting PIKfyve-driven lipid metabolism in pancreatic cancer Cheng, C., Hu, J., Mannan, R. et al. Cheng C et al. Nature 2025 10.1038/s41586-025-08917-z Cancer Metabolism, Hypoxia &amp; Ferroptosis PIKfyve lipid metabolism pancreatic cancer">
+        <span class="paper-number" aria-hidden="true">28</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/s41586-025-08917-z" target="_blank" rel="noopener noreferrer">Targeting PIKfyve-driven lipid metabolism in pancreatic cancer</a></h4>
+          <p class="paper-authors">Cheng C et al.</p>
+          <p class="paper-meta"><em>Nature</em>. 2025;642:776–784.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/s41586-025-08917-z" target="_blank" rel="noopener noreferrer">DOI: 10.1038/s41586-025-08917-z</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-6" data-year="2023" data-search="Ferroptosis surveillance independent of GPX4 and differentially regulated by sex hormones Liang D, Feng Y, Zandkarimi F, Wang H, Zhang Z, Kim J, Cai Y, Gu W, Stockwell BR, Jiang X Liang D et al. Cell 2023 10.1016/j.cell.2023.05.003 Cancer Metabolism, Hypoxia &amp; Ferroptosis GPX4 ferroptosis sex hormones">
+        <span class="paper-number" aria-hidden="true">29</span>
+        <div>
+          <h4><a href="https://doi.org/10.1016/j.cell.2023.05.003" target="_blank" rel="noopener noreferrer">Ferroptosis surveillance independent of GPX4 and differentially regulated by sex hormones</a></h4>
+          <p class="paper-authors">Liang D et al.</p>
+          <p class="paper-meta"><em>Cell</em>. 2023;186:2748–2764.e22.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1016/j.cell.2023.05.003" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.cell.2023.05.003</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-2" data-year="2020" data-search="Metabolic reprogramming and cancer progression Faubert B, Solmonson A, DeBerardinis RJ Faubert B, Solmonson A &amp; DeBerardinis RJ Science 2020 10.1126/science.aaw5473 Cancer Metabolism, Hypoxia &amp; Ferroptosis metabolic reprogramming cancer progression">
+        <span class="paper-number" aria-hidden="true">30</span>
+        <div>
+          <h4><a href="https://doi.org/10.1126/science.aaw5473" target="_blank" rel="noopener noreferrer">Metabolic reprogramming and cancer progression</a></h4>
+          <p class="paper-authors">Faubert B, Solmonson A &amp; DeBerardinis RJ</p>
+          <p class="paper-meta"><em>Science</em>. 2020;368(6487):eaaw5473.</p>
+          <div class="paper-links"><span class="paper-type review">Review</span><a class="paper-doi" href="https://doi.org/10.1126/science.aaw5473" target="_blank" rel="noopener noreferrer">DOI: 10.1126/science.aaw5473</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/32273439/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-4" data-year="2015" data-search="Oxidative stress inhibits distant metastasis by human melanoma cells Piskounova E, Agathocleous M, Murphy MM, Hu Z, Huddlestun SE, Zhao Z, et al. Piskounova E et al. Nature 2015 10.1038/nature15726 Cancer Metabolism, Hypoxia &amp; Ferroptosis ROS oxidative stress redox melanoma metastasis">
+        <span class="paper-number" aria-hidden="true">31</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/nature15726" target="_blank" rel="noopener noreferrer">Oxidative stress inhibits distant metastasis by human melanoma cells</a></h4>
+          <p class="paper-authors">Piskounova E et al.</p>
+          <p class="paper-meta"><em>Nature</em>. 2015;527(7577):186–91.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/nature15726" target="_blank" rel="noopener noreferrer">DOI: 10.1038/nature15726</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/26466563/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-3" data-year="2013" data-search="HIF-1 mediates metabolic responses to intratumoral hypoxia and oncogenic mutations Semenza GL Semenza GL J Clin Invest 2013 10.1172/JCI67230 Cancer Metabolism, Hypoxia &amp; Ferroptosis HIF-1 HIF1 hypoxia oxygen oncogenic mutations">
+        <span class="paper-number" aria-hidden="true">32</span>
+        <div>
+          <h4><a href="https://doi.org/10.1172/JCI67230" target="_blank" rel="noopener noreferrer">HIF-1 mediates metabolic responses to intratumoral hypoxia and oncogenic mutations</a></h4>
+          <p class="paper-authors">Semenza GL</p>
+          <p class="paper-meta"><em>J Clin Invest</em>. 2013;123(9):3664–71.</p>
+          <div class="paper-links"><span class="paper-type review">Review</span><a class="paper-doi" href="https://doi.org/10.1172/JCI67230" target="_blank" rel="noopener noreferrer">DOI: 10.1172/JCI67230</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/23999440/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="paper-category" id="prostate-metastatic-signaling" aria-labelledby="prostate-metastatic-signaling-heading">
+    <div class="paper-category-heading"><h3 id="prostate-metastatic-signaling-heading">Prostate Cancer &amp; Metastatic Signaling</h3><span class="paper-category-count">6 papers</span></div>
+    <p class="paper-category-description">Prostate cancer transcriptional programs, metabolic adaptation, and signaling mechanisms of invasion and metastasis.</p>
+    <div class="paper-list">
+      <article class="paper-entry" id="paper-seed-9" data-year="2026" data-search="A stress-adaptive lipid kinase axis defines metabolic vulnerabilities in neuroendocrine prostate cancer Zheng, Yang et al. Zheng Y et al. Cancer Cell 2026 10.1016/j.ccell.2026.07.003 Prostate Cancer &amp; Metastatic Signaling NEPC neuroendocrine prostate cancer PIKfyve FASN ER stress hypoxia lipid metabolism">
+        <span class="paper-number" aria-hidden="true">33</span>
+        <div>
+          <h4><a href="https://doi.org/10.1016/j.ccell.2026.07.003" target="_blank" rel="noopener noreferrer">A stress-adaptive lipid kinase axis defines metabolic vulnerabilities in neuroendocrine prostate cancer</a></h4>
+          <p class="paper-authors">Zheng Y et al.</p>
+          <p class="paper-meta"><em>Cancer Cell</em>. 2026;44:1761–1778.e12.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1016/j.ccell.2026.07.003" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.ccell.2026.07.003</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/42546705/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-20" data-year="2019" data-search="Distinct structural classes of activating FOXA1 alterations in advanced prostate cancer Parolia A, Cieslik M, Chu SC, Xiao L, Ouchi T, Zhang Y, et al. Parolia A et al. Nature 2019 10.1038/s41586-019-1347-4 Prostate Cancer &amp; Metastatic Signaling FOXA1 prostate cancer alterations">
+        <span class="paper-number" aria-hidden="true">34</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/s41586-019-1347-4" target="_blank" rel="noopener noreferrer">Distinct structural classes of activating FOXA1 alterations in advanced prostate cancer</a></h4>
+          <p class="paper-authors">Parolia A et al.</p>
+          <p class="paper-meta"><em>Nature</em>. 2019;571(7765):413–8.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/s41586-019-1347-4" target="_blank" rel="noopener noreferrer">DOI: 10.1038/s41586-019-1347-4</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/31243372/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-important-19" data-year="2015" data-search="The androgen receptor cistrome is extensively reprogrammed in human prostate tumorigenesis Pomerantz MM, Li F, Takeda DY, Lenci R, Chonkar A, Chabot M, et al. Pomerantz MM et al. Nat Genet 2015 10.1038/ng.3419 Prostate Cancer &amp; Metastatic Signaling AR androgen receptor FOXA1 HOXB13 prostate tumorigenesis">
+        <span class="paper-number" aria-hidden="true">35</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/ng.3419" target="_blank" rel="noopener noreferrer">The androgen receptor cistrome is extensively reprogrammed in human prostate tumorigenesis</a></h4>
+          <p class="paper-authors">Pomerantz MM et al.</p>
+          <p class="paper-meta"><em>Nat Genet</em>. 2015;47(11):1346–51.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/ng.3419" target="_blank" rel="noopener noreferrer">DOI: 10.1038/ng.3419</a>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/26457646/" target="_blank" rel="noopener noreferrer">PubMed</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-12" data-year="2012" data-search="Growth and metastasis suppression of glioma xenografts expressing exon 4-deletion variant of epidermal growth factor receptor by monoclonal antibody CH12-mediated receptor degradation Wang, H., Shi, B., Zhang, Q., Jiang, H., Hu, S., Kong, J., Yao, M., Yang, S. and Li, Z. Wang H et al. FASEB J. 2012 10.1096/fj.11-191064 Prostate Cancer &amp; Metastatic Signaling EGFR CH12 glioma exon 4 deletion">
+        <span class="paper-number" aria-hidden="true">36</span>
+        <div>
+          <h4><a href="https://doi.org/10.1096/fj.11-191064" target="_blank" rel="noopener noreferrer">Growth and metastasis suppression of glioma xenografts expressing exon 4-deletion variant of epidermal growth factor receptor by monoclonal antibody CH12-mediated receptor degradation</a></h4>
+          <p class="paper-authors">Wang H et al.</p>
+          <p class="paper-meta"><em>FASEB J.</em>. 2012;26:73–80.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1096/fj.11-191064" target="_blank" rel="noopener noreferrer">DOI: 10.1096/fj.11-191064</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-11" data-year="2011" data-search="Identification of an exon 4-deletion variant of epidermal growth factor receptor with increased metastasis-promoting capacity Wang H, Zhou M, Shi B, Zhang Q, Jiang H, Sun Y, Liu J, Zhou K, Yao M, Gu J, Yang S, Mao Y, Li Z Wang H et al. Neoplasia 2011 10.1593/neo.101744 Prostate Cancer &amp; Metastatic Signaling EGFR exon 4 deletion metastatic signaling">
+        <span class="paper-number" aria-hidden="true">37</span>
+        <div>
+          <h4><a href="https://doi.org/10.1593/neo.101744" target="_blank" rel="noopener noreferrer">Identification of an exon 4-deletion variant of epidermal growth factor receptor with increased metastasis-promoting capacity</a></h4>
+          <p class="paper-authors">Wang H et al.</p>
+          <p class="paper-meta"><em>Neoplasia</em>. 2011;13:461–471.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1593/neo.101744" target="_blank" rel="noopener noreferrer">DOI: 10.1593/neo.101744</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-10" data-year="2009" data-search="Novel gene C17orf37 in 17q12 amplicon promotes migration and invasion of prostate cancer cells Dasgupta, S., Wasson, L., Rauniyar, N. et al. Dasgupta S et al. Oncogene 2009 10.1038/onc.2009.145 Prostate Cancer &amp; Metastatic Signaling C17orf37 MIEN1 prostate migration invasion">
+        <span class="paper-number" aria-hidden="true">38</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/onc.2009.145" target="_blank" rel="noopener noreferrer">Novel gene C17orf37 in 17q12 amplicon promotes migration and invasion of prostate cancer cells</a></h4>
+          <p class="paper-authors">Dasgupta S et al.</p>
+          <p class="paper-meta"><em>Oncogene</em>. 2009;28:2860–2872.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/onc.2009.145" target="_blank" rel="noopener noreferrer">DOI: 10.1038/onc.2009.145</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="paper-category" id="tumor-immunity-t-cells" aria-labelledby="tumor-immunity-t-cells-heading">
+    <div class="paper-category-heading"><h3 id="tumor-immunity-t-cells-heading">Tumor Immunity &amp; T-Cell Fate</h3><span class="paper-category-count">4 papers</span></div>
+    <p class="paper-category-description">Antitumor immunity, T-cell differentiation, STING signaling, and responses to cancer therapy.</p>
+    <div class="paper-list">
+      <article class="paper-entry" id="paper-seed-2" data-year="2025" data-search="VDAC2 loss elicits tumour destruction and inflammation for cancer therapy Yuan, S., Sun, R., Shi, H. et al. Yuan S et al. Nature 2025 10.1038/s41586-025-08732-6 Tumor Immunity &amp; T-Cell Fate VDAC2 tumour inflammation antitumor immunity">
+        <span class="paper-number" aria-hidden="true">39</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/s41586-025-08732-6" target="_blank" rel="noopener noreferrer">VDAC2 loss elicits tumour destruction and inflammation for cancer therapy</a></h4>
+          <p class="paper-authors">Yuan S et al.</p>
+          <p class="paper-meta"><em>Nature</em>. 2025;640:1062–1071.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/s41586-025-08732-6" target="_blank" rel="noopener noreferrer">DOI: 10.1038/s41586-025-08732-6</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-17" data-year="2023" data-search="STING agonism overcomes STAT3-mediated immunosuppression and adaptive resistance to PARP inhibition in ovarian cancer Ding L, Wang Q, Martincuks A, Kearns MJ, Jiang T, Lin Z, Cheng X, Qian C, Xie S, Kim HJ, Launonen IM, Färkkilä A, Roberts TM, Freeman GJ, Liu JF, Konstantinopoulos PA, Matulonis U, Yu H, Zhao JJ Ding L et al. J. Immunother. Cancer 2023 10.1136/jitc-2022-005627 Tumor Immunity &amp; T-Cell Fate STING STAT3 PARP ovarian cancer immunosuppression">
+        <span class="paper-number" aria-hidden="true">40</span>
+        <div>
+          <h4><a href="https://doi.org/10.1136/jitc-2022-005627" target="_blank" rel="noopener noreferrer">STING agonism overcomes STAT3-mediated immunosuppression and adaptive resistance to PARP inhibition in ovarian cancer</a></h4>
+          <p class="paper-authors">Ding L et al.</p>
+          <p class="paper-meta"><em>J. Immunother. Cancer</em>. 2023;11:e005627.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1136/jitc-2022-005627" target="_blank" rel="noopener noreferrer">DOI: 10.1136/jitc-2022-005627</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-4" data-year="2022" data-search="cBAF complex components and MYC cooperate early in CD8+ T cell fate Guo, A., Huang, H., Zhu, Z. et al. Guo A et al. Nature 2022 10.1038/s41586-022-04849-0 Tumor Immunity &amp; T-Cell Fate cBAF MYC CD8 T cells">
+        <span class="paper-number" aria-hidden="true">41</span>
+        <div>
+          <h4><a href="https://doi.org/10.1038/s41586-022-04849-0" target="_blank" rel="noopener noreferrer">cBAF complex components and MYC cooperate early in CD8+ T cell fate</a></h4>
+          <p class="paper-authors">Guo A et al.</p>
+          <p class="paper-meta"><em>Nature</em>. 2022;607:135–141.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1038/s41586-022-04849-0" target="_blank" rel="noopener noreferrer">DOI: 10.1038/s41586-022-04849-0</a>
+          </div>
+        </div>
+      </article>
+      <article class="paper-entry" id="paper-seed-16" data-year="2018" data-search="PARP Inhibition Elicits STING-Dependent Antitumor Immunity in Brca1-Deficient Ovarian Cancer Ding L, Kim H, Wang Q et al. Ding L et al. Cell Rep. 2018 10.1016/j.celrep.2018.11.054 Tumor Immunity &amp; T-Cell Fate STING PARP BRCA1 ovarian antitumor immunity">
+        <span class="paper-number" aria-hidden="true">42</span>
+        <div>
+          <h4><a href="https://doi.org/10.1016/j.celrep.2018.11.054" target="_blank" rel="noopener noreferrer">PARP Inhibition Elicits STING-Dependent Antitumor Immunity in Brca1-Deficient Ovarian Cancer</a></h4>
+          <p class="paper-authors">Ding L et al.</p>
+          <p class="paper-meta"><em>Cell Rep.</em>. 2018;25:2972–2980.e5.</p>
+          <div class="paper-links"><span class="paper-type article">Research article</span><a class="paper-doi" href="https://doi.org/10.1016/j.celrep.2018.11.054" target="_blank" rel="noopener noreferrer">DOI: 10.1016/j.celrep.2018.11.054</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="resources-other" aria-labelledby="additional-resources-heading">
+    <h2 id="additional-resources-heading" class="section-title">Additional Research Resources</h2>
   <h2 class="section-title">Research & Methods</h2>
 
   <div class="research-card">
@@ -95,10 +952,71 @@
     <p>Many organizations support cancer research. Explore opportunities through <a href="https://www.nsf.gov/" target="_blank">NSF</a>, <a href="https://www.cancer.org/" target="_blank">American Cancer Society</a>, and disease-specific foundations.</p>
   </div>
 
-  <!-- EDIT: add more resources relevant to your research -->
+  </section>
 
 </div>
 
 <footer class="site-footer">&copy; <script>document.write(new Date().getFullYear())</script> Md Mohsin Ali &middot; Hosted on <a href="https://pages.github.com/" target="_blank">GitHub Pages</a></footer>
+<script>
+(function () {
+  const search = document.getElementById('paper-search');
+  const topic = document.getElementById('paper-topic');
+  const year = document.getElementById('paper-year');
+  const clear = document.getElementById('paper-clear');
+  const results = document.getElementById('paper-results');
+  const empty = document.getElementById('paper-empty');
+  const sections = Array.from(document.querySelectorAll('.paper-category'));
+  const total = document.querySelectorAll('.paper-entry').length;
+  const normalize = value => value.normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLocaleLowerCase();
+  function applyFilters() {
+    const terms = normalize(search.value.trim()).split(/\s+/).filter(Boolean);
+    let visible = 0;
+    let visibleTopics = 0;
+    sections.forEach(section => {
+      let categoryCount = 0;
+      section.querySelectorAll('.paper-entry').forEach(paper => {
+        const text = normalize(paper.dataset.search);
+        const matches = (!topic.value || section.id === topic.value)
+          && (!year.value || paper.dataset.year === year.value)
+          && terms.every(term => text.includes(term));
+        paper.hidden = !matches;
+        if (matches) categoryCount++;
+      });
+      section.hidden = categoryCount === 0;
+      section.querySelector('.paper-category-count').textContent = categoryCount + (categoryCount === 1 ? ' paper' : ' papers');
+      if (categoryCount) visibleTopics++;
+      visible += categoryCount;
+    });
+    results.textContent = visible === total
+      ? total + ' papers across ' + visibleTopics + ' topics'
+      : visible + ' of ' + total + ' papers · ' + visibleTopics + (visibleTopics === 1 ? ' topic' : ' topics');
+    empty.hidden = visible !== 0;
+  }
+  search.addEventListener('input', applyFilters);
+  topic.addEventListener('change', applyFilters);
+  year.addEventListener('change', applyFilters);
+  clear.addEventListener('click', function () {
+    search.value = '';
+    topic.value = '';
+    year.value = '';
+    applyFilters();
+    search.focus();
+  });
+  document.querySelectorAll('.resources-topics a').forEach(link => {
+    link.addEventListener('click', function (event) {
+      event.preventDefault();
+      search.value = '';
+      year.value = '';
+      topic.value = link.dataset.topic;
+      applyFilters();
+      const section = document.getElementById(link.dataset.topic);
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      section.scrollIntoView({behavior:reducedMotion ? 'auto' : 'smooth', block:'start'});
+    });
+  });
+  applyFilters();
+}());
+</script>
 </body>
 </html>
+
