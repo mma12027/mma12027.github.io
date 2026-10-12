@@ -197,7 +197,7 @@ h3 { font-size: 1.15rem; margin: 0 0 .4em; }
 .portrait-card { position: relative; width: 210px; flex-shrink: 0; border-radius: 10px; overflow: hidden; }
 .intro .portrait-card .photo { width: 100%; border: 0; border-radius: 0; }
 .portrait-card .welcome-heading { position: absolute; left: 0; right: 0; bottom: 0; z-index: 1; margin: 0; padding: 32px 12px 14px; color: #fff; font-size: 1.05rem; line-height: 1.35; text-align: left; text-shadow: 0 1px 3px rgba(0,0,0,.5); background: linear-gradient(transparent, rgba(0,0,0,.8)); }
-@media (max-width: 760px) { .portrait-card { width: 210px; max-width: 100%; } }
+@media (max-width: 760px) { .portrait-card { width: 100%; max-width: none; } }
 /* intro: photo + text */
 .intro { display: flex; gap: 32px; align-items: flex-start; margin-bottom: 10px; }
 .intro .photo { width: 210px; flex-shrink: 0; border-radius: 10px; border: 1px solid var(--border); }
@@ -279,7 +279,8 @@ h3 { font-size: 1.15rem; margin: 0 0 .4em; }
 /* ========== RESPONSIVE ========== */
 @media (max-width: 760px) {
   .intro { flex-direction: column; align-items: center; text-align: center; }
-  .intro .photo { width: 170px; }
+  .intro .photo { width: 100%; height: auto; }
+  .portrait-card .welcome-heading { font-size: clamp(1.15rem, 5vw, 1.6rem); padding: 48px 20px 20px; }
   .social-row { justify-content: center; }
   .event-row { grid-template-columns: 1fr; gap: 2px; }
 }
